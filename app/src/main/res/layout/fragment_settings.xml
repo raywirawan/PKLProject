@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".fragment.SettingsFragment">
+
+    <TextView
+        android:id="@+id/tv_settings_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_top_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:text="Settings"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="@dimen/activity_top_margin"
+        style="@style/Divider.Horizontal"
+        />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/container_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:layout_marginVertical="@dimen/activity_vertical_margin"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_edit_24"
+        app:endIconContentDescription="Edit"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="API url ">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_url"
+            android:enabled="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:lines="1"
+            android:ellipsize="end"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+</LinearLayout>

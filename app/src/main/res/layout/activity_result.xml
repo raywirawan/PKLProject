@@ -4,21 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ResultActivity">
+    tools:context=".activity.ResultActivity">
 
     <ImageView
         android:id="@+id/icon_success"
 
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:src="@drawable/ic_done"
         android:visibility="visible"
-        app:layout_constraintVertical_bias="0.125"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/tv_status_message"
+        app:layout_constraintEnd_toStartOf="@id/tv_status_message"
+        app:layout_constraintTop_toTopOf="@id/tv_status_message"/>
+    
+    <ImageView
+        android:id="@+id/iv_result_image"
+        android:layout_width="150dp"
+        android:layout_height="187dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/icon_failed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintEnd_toEndOf="parent"/>
+    
     <ImageView
         android:id="@+id/icon_failed"
         android:layout_width="150dp"
@@ -32,17 +40,18 @@
         app:layout_constraintVertical_bias="0.125" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/tv_status_message"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Classification Success"
-        android:layout_marginTop="50dp"
-        android:fontFamily="monospace"
+        android:layout_marginTop="65dp"
+        android:gravity="center"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/icon_success"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tv_result_message"
-        android:id="@+id/tv_status_message"/>
+        app:layout_constraintTop_toBottomOf="@id/icon_failed"
+        tools:text="Classification Success" />
 
     <TextView
         android:id="@+id/tv_result_message"
@@ -51,7 +60,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
         android:fontFamily="monospace"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_status_message"
         tools:text="RESULT : OK LLOREM IPSUM DOLOR SIT AMET" />
