@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:cardElevation="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginVertical="@dimen/activity_vertical_margin"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin">
+
+
+        <TextView
+            android:id="@+id/item_card_history_jenis"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:text="Nilam Diploid"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:maxLines="3"
+            android:ellipsize="end"
+            app:layout_constraintBottom_toTopOf="@id/item_card_history_tanggal"
+            app:layout_constraintStart_toEndOf="@id/item_card_history_gambar"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/item_card_history_tanggal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="18/11/2020"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/item_card_history_jenis"
+            app:layout_constraintTop_toBottomOf="@id/item_card_history_jenis" />
+        <TextView
+            android:id="@+id/item_card_history_jam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="20:56"
+            android:layout_marginTop="8dp"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/item_card_history_gambar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@mipmap/img_leaf" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -18,6 +18,8 @@ import android.widget.ImageView;
 
 import com.google.android.gms.common.util.IOUtils;
 import com.myproject.pkl.R;
+import com.myproject.pkl.model.Database;
+import com.myproject.pkl.model.IdentifiedObject;
 import com.otaliastudios.cameraview.CameraListener;
 import com.otaliastudios.cameraview.CameraView;
 import com.otaliastudios.cameraview.PictureResult;
@@ -50,6 +52,7 @@ public class PhotoActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
+
 
         sharedPref = this.getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE);
         savedUrl = sharedPref.getString("url", "https://proyekmagangpkl2020.herokuapp.com/predict");
@@ -131,6 +134,7 @@ public class PhotoActivity extends AppCompatActivity implements View.OnClickList
                         .build();
                 Response response = client.newCall(request).execute();
                 intent.putExtra("photo", upload);
+
                 return response.body().string();
 
             } catch (Exception e) {
