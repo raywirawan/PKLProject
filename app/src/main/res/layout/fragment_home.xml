@@ -32,12 +32,13 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_home_header" />
 
     <TextView
+        android:id="@+id/tv_get_started"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:textSize="16sp"
-        android:text="Untuk mulai klasifikasi tanaman nilam \nklik Take Photo"
+        android:text="Untuk mulai klasifikasi tanaman nilam \nklik Upload Photo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/home_divider" />
@@ -57,7 +58,7 @@
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:layout_marginBottom="@dimen/activity_top_margin"
         android:backgroundTint="@color/colorAccent"
-        android:text="Take Photo"
+        android:text="Upload Photo"
         app:icon="@drawable/ic_camera_alt_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
