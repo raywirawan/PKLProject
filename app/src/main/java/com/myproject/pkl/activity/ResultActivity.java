@@ -72,7 +72,6 @@ public class ResultActivity extends AppCompatActivity {
 
             IdentifiedObject io = new IdentifiedObject(jenis, MyUtils.getCurrentDate(), MyUtils.getCurrentClock(), photoByte);
             new ResultActivity.InsertDB().execute(io);
-
         } else  {
             if (result.contains("Unable to resolve host"))
                 result = "Unable to connect to server, please check your internet connection";
@@ -82,8 +81,13 @@ public class ResultActivity extends AppCompatActivity {
             tvStatus.setText("Classification Failed");
             ivSuccess.setVisibility(View.INVISIBLE);
             ivFail.setVisibility(View.VISIBLE);
+            tvJenis.setText("");
+            if (result == "timeout"){
+                tvResult.setText("Timeout error, mohon coba upload kembali.\nBackend di Heroku akan memasuki masa idle jika terlalu lama tidak menerima request.");
+            } else {
+                tvResult.setText("Gagal melakukan ekstraksi fitur pada gambar!\n(Gunakan fitur upload melalui galeri jika error ini kerap muncul)");
+            }
         }
-        tvResult.setText(result);
     }
     private class InsertDB extends AsyncTask<IdentifiedObject, Void, String> {
         private Exception exception;
