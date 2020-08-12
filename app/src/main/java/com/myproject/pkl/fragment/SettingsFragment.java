@@ -2,18 +2,24 @@ package com.myproject.pkl.fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.android.material.textfield.TextInputLayout;
 import com.myproject.pkl.R;
 import com.myproject.pkl.model.Database;
@@ -29,11 +35,12 @@ public class SettingsFragment extends Fragment {
     private String sharedPrefFile = "com.myproject.pkl.preferences";
     private SharedPreferences sharedPref;
     private Database database;
+    private SwitchMaterial swDarkMode;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        database = Database.getInstance(getContext());
     }
 
     @Override
@@ -44,9 +51,9 @@ public class SettingsFragment extends Fragment {
             v = inflater.inflate(R.layout.fragment_settings, container, false);
 
             sharedPref = getContext().getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE);
-            database = Database.getInstance(getContext());
-            String url = sharedPref.getString("url", "https://proyekmagangpkl2020.herokuapp.com/predict");
 
+            String url = sharedPref.getString("url", "https://proyekmagangpkl2020.herokuapp.com/predict");
+            swDarkMode = v.findViewById(R.id.sw_darkmode);
             btnDelete = v.findViewById(R.id.btn_clear_history);
             container_url = v.findViewById(R.id.container_url);
             et_url = v.findViewById(R.id.et_url);
@@ -78,6 +85,13 @@ public class SettingsFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     new SettingsFragment.DeleteDB().execute();
+                }
+            });
+            swDarkMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    Toast.makeText(getContext(), "Theme Changed", Toast.LENGTH_SHORT).show();
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 }
             });
         }

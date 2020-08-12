@@ -63,6 +63,7 @@ public class ResultActivity extends AppCompatActivity {
             ivFail.setVisibility(View.INVISIBLE);
             ivSuccess.setVisibility(View.VISIBLE);
             tvJenis.setVisibility(View.VISIBLE);
+            tvResult.setVisibility(View.INVISIBLE);
             tvStatus.setText("Classification Success");
             String jenis = "";
             try { jenis = jsonResult.getString("payload"); }
@@ -73,6 +74,11 @@ public class ResultActivity extends AppCompatActivity {
             new ResultActivity.InsertDB().execute(io);
 
         } else  {
+            if (result.contains("Unable to resolve host"))
+                result = "Unable to connect to server, please check your internet connection";
+            String resultAppend = "Error : ";
+            result = resultAppend.concat(result);
+            tvJenis.setVisibility(View.INVISIBLE);
             tvStatus.setText("Classification Failed");
             ivSuccess.setVisibility(View.INVISIBLE);
             ivFail.setVisibility(View.VISIBLE);

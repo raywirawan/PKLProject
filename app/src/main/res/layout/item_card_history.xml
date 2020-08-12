@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:backgroundTint="@android:color/transparent"
     app:cardElevation="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,7 +28,8 @@
             android:ellipsize="end"
             app:layout_constraintBottom_toTopOf="@id/item_card_history_tanggal"
             app:layout_constraintStart_toEndOf="@id/item_card_history_gambar"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <TextView
             android:id="@+id/item_card_history_tanggal"
