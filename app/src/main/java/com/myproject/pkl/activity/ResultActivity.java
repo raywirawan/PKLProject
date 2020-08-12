@@ -82,10 +82,12 @@ public class ResultActivity extends AppCompatActivity {
             ivSuccess.setVisibility(View.INVISIBLE);
             ivFail.setVisibility(View.VISIBLE);
             tvJenis.setText("");
-            if (result == "timeout"){
+            if (result.contains("timeout")){
                 tvResult.setText("Timeout error, mohon coba upload kembali.\nBackend di Heroku akan memasuki masa idle jika terlalu lama tidak menerima request.");
+//                tvResult.setText(result);
             } else {
                 tvResult.setText("Gagal melakukan ekstraksi fitur pada gambar!\n(Gunakan fitur upload melalui galeri jika error ini kerap muncul)");
+//                tvResult.setText(result);
             }
         }
     }
