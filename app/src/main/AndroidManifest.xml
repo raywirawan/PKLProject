@@ -16,19 +16,27 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.PhotoActivity"
-            android:configChanges="uiMode"/>
+            android:configChanges="uiMode"
+            android:theme="@style/AppThemeNoBar" />
         <activity
             android:name=".activity.ResultActivity"
-            android:configChanges="uiMode"/>
+            android:configChanges="uiMode" />
+
         <activity
             android:name=".activity.MainActivity"
-            android:configChanges="uiMode">
+            android:configChanges="uiMode"/>
+
+        <activity android:name=".activity.IntroActivity">
+
+        </activity>
+
+        <activity android:name=".activity.SplashActivity"
+            android:theme="@style/AppThemeNoBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
+</application>
 
 </manifest>

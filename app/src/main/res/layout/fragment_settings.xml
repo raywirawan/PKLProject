@@ -5,65 +5,112 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="?attr/backgroundColor"
+    android:padding="5dp"
     tools:context=".fragment.SettingsFragment">
 
-    <TextView
-        android:id="@+id/tv_settings_header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_top_margin"
-        android:layout_marginEnd="@dimen/activity_horizontal_margin"
-        android:text="Settings"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:layout_marginTop="@dimen/activity_top_margin"
-        style="@style/Divider.Horizontal"
-        />
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_settings_header"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="@dimen/activity_horizontal_margin"-->
+    <!--        android:layout_marginTop="@dimen/activity_top_margin"-->
+    <!--        android:layout_marginEnd="@dimen/activity_horizontal_margin"-->
+    <!--        android:text="Settings"-->
+    <!--        android:textColor="?attr/itemTextColor"-->
+    <!--        android:textSize="20sp"-->
+    <!--        android:textStyle="bold"/>-->
+    <!--    <View-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="3dp"-->
+    <!--        android:layout_marginTop="@dimen/activity_top_margin"-->
+    <!--        style="@style/Divider.Horizontal" />-->
+
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/sw_darkmode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:textColor="@color/colorPrimaryDark"
+        app:trackTint="@color/bottomnav"
+        app:thumbTint="@color/colorPrimary"
+        android:fontFamily="@font/gothammedium"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_top_margin"
-        android:paddingBottom="@dimen/activity_top_margin"
-        android:checked="true"
-        android:text="Dark Mode"
-        />
+        android:textColor="?attr/itemTextColor"
+        android:checked="false"
+        android:text="Dark Mode" />
+
+    <TextView
+        android:id="@+id/sw_darkmode_sub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Change Light mode into Dark mode?"
+        android:textSize="9sp"
+        android:paddingBottom="15dp"
+        android:textColor="?attr/itemTextColor"
+        android:fontFamily="@font/gotham_light"
+        android:paddingHorizontal="@dimen/activity_horizontal_margin"/>
+
     <View
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="1dp"
         style="@style/Divider.Horizontal"
+        android:background="?attr/viewBackgroundColor"
         />
     <TextView
         android:id="@+id/btn_clear_history"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Clear History"
-        android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp"
-        android:paddingVertical="15dp"
+        android:textColor="?attr/itemTextColor"
+        android:paddingTop="15dp"
+        android:paddingBottom="5dp"
         android:clickable="true"
         android:focusable="true"
+        android:fontFamily="@font/gothammedium"
         android:paddingHorizontal="@dimen/activity_horizontal_margin"/>
+
+    <TextView
+        android:id="@+id/btn_clear_history_sub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Do you want to clear your history?"
+        android:textSize="9sp"
+        android:paddingBottom="15dp"
+        android:textColor="?attr/itemTextColor"
+        android:fontFamily="@font/gotham_light"
+        android:paddingHorizontal="@dimen/activity_horizontal_margin"/>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         style="@style/Divider.Horizontal"
-        />
+        android:background="?attr/viewBackgroundColor"/>
+
+    <TextView
+        android:id="@+id/tv_container_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Change API URL"
+        android:textSize="16sp"
+        android:textColor="?attr/itemTextColor"
+        android:paddingTop="15dp"
+        android:paddingBottom="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/gothammedium"
+        android:paddingHorizontal="@dimen/activity_horizontal_margin"/>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/container_url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
         app:endIconMode="custom"
+        android:fontFamily="@font/gothammedium"
+        android:textColor="?attr/backgroundColor"
         app:endIconDrawable="@drawable/ic_edit_24"
         app:endIconContentDescription="Edit"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"

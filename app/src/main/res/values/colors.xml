@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#29b6f6</color>
-    <color name="colorPrimaryDark">#0086c3</color>
-    <color name="colorAccent">#73e8ff</color>
+    <color name="colorPrimary">#4ca64c</color>
+    <color name="colorPrimaryDark">#329932</color>
+    <color name="colorAccent">#99cc99</color>
+
+    <color name="bottomnav">#b2b2b2</color>
+    <!-- colors for day style -->
+    <color name="backgroundColor">#ffffff</color>
+    <color name="cardBackgroundColor">#ffffff</color>
+    <color name="viewBackgroundColor">#303030</color>
+    <color name="itemTextColor">#000000</color>
+
+    <!-- colors for night style -->
+    <color name="backgroundNightColor">#303030</color>
+    <color name="cardBackgroundNightColor">#303030</color>
+    <color name="viewBackgroundNightColor">#ffffff</color>
+    <color name="itemTextNightColor">#ffffff</color>
+
+    <!-- colors for button style -->
+    <color name="gradient_start_color">#4c84ff</color>
+    <color name="gradient_end_color">#18a3fe</color>
+
+    <!-- colors for tab and screent text -->
+    <color name="tab_indicator_gray">#c0c0c0</color>
+    <color name="intro_title_color">#000000</color>
+    <color name="intro_description_color">#656565</color>
+
 </resources>

@@ -25,6 +25,7 @@ import com.myproject.pkl.model.IdentifiedObject;
 
 import java.util.List;
 
+
 public class HomeFragment extends Fragment {
 
     private View v;
@@ -38,15 +39,17 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
         database = Database.getInstance(getContext());
         new HomeFragment.ReadDB().execute();
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
+        // Inflate the layout for this fragment
         if (v == null){
             v = inflater.inflate(R.layout.fragment_home, container, false);
             fab = v.findViewById(R.id.fab_add_photo);
@@ -100,4 +103,28 @@ public class HomeFragment extends Fragment {
             showRecyclerList();
         }
     }
+
+//    @Override
+//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//        super.onCreateOptionsMenu(menu, inflater);
+//        inflater.inflate(R.menu.filter_menu,menu);
+//        MenuItem searchitem = menu.findItem(R.id.action_search);
+//        SearchView searchView = (SearchView) searchitem.getActionView();
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                if(newText!=null){
+//                    listHistoryAdapter.getFilter().filter(newText);
+//                }else {
+//                    listHistoryAdapter.getFilter();
+//                }
+//                return true;
+//            }
+//        });
+//    }
 }

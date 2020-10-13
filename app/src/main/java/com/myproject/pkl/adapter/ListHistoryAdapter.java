@@ -5,6 +5,8 @@ import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,15 +16,18 @@ import com.myproject.pkl.MyUtils;
 import com.myproject.pkl.R;
 import com.myproject.pkl.model.IdentifiedObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ListHistoryAdapter extends RecyclerView.Adapter<ListHistoryAdapter.CardViewViewHolder> {
+public class ListHistoryAdapter extends RecyclerView.Adapter<ListHistoryAdapter.CardViewViewHolder> implements Filterable {
     private List<IdentifiedObject> listObject;
+    private List<IdentifiedObject> listObjectFull;
 
-    public ListHistoryAdapter(List<IdentifiedObject> list){
-        this.listObject = list;
+    public ListHistoryAdapter(List<IdentifiedObject> listObject){
+        this.listObject = listObject;
+        listObjectFull = new ArrayList<>(listObject);
     }
 
     @NonNull
@@ -48,6 +53,39 @@ public class ListHistoryAdapter extends RecyclerView.Adapter<ListHistoryAdapter.
     public int getItemCount() {
         return listObject.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return listfilter;
+    }
+
+    private Filter listfilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<IdentifiedObject> filterlist = new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0) {
+                filterlist.addAll(listObjectFull);
+            } else {
+                String filterpattern = constraint.toString().toLowerCase().trim();
+                for (IdentifiedObject identifiedObject : listObjectFull) {
+                    if (identifiedObject.getJenis().toLowerCase().contains(filterpattern)) {
+                        filterlist.add(identifiedObject);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filterlist;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            listObject.clear();
+            listObject.addAll((List) results.values);
+            notifyDataSetChanged();
+        }
+    };
 
     public class CardViewViewHolder extends RecyclerView.ViewHolder {
         CircleImageView imgPhoto;

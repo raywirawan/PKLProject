@@ -1,6 +1,8 @@
 package com.myproject.pkl.fragment;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -84,18 +86,51 @@ public class SettingsFragment extends Fragment {
             btnDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    new SettingsFragment.DeleteDB().execute();
+                    onAlertDialog(v);
                 }
             });
+
             swDarkMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     Toast.makeText(getContext(), "Theme Changed", Toast.LENGTH_SHORT).show();
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    if(isChecked){
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                        getContext().setTheme(R.style.NightMode);
+                    }else{
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                        getContext().setTheme(R.style.AppTheme);
+                    }
                 }
             });
         }
         return v;
+    }
+
+    private void onAlertDialog(View view) {
+        //Instantiate builder variable
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        // set title
+        builder.setTitle("Clear History");
+        //set content area
+        builder.setMessage("Do you want to clear all the history?");
+
+        //set positive button
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id)
+            {
+                //clear database
+                new SettingsFragment.DeleteDB().execute();
+            }});
+
+        //set negative button
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int id)
+            {
+                dialog.cancel();
+            }});
+        builder.show();
     }
 
     private class DeleteDB extends AsyncTask<Void, Void, String> {
@@ -116,4 +151,5 @@ public class SettingsFragment extends Fragment {
             System.out.println("anjir "+res);
         }
     }
+
 }
