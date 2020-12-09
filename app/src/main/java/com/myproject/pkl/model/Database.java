@@ -1,7 +1,6 @@
 package com.myproject.pkl.model;
 
 import android.content.Context;
-
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 

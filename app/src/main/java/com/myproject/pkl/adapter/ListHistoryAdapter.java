@@ -21,6 +21,7 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+
 public class ListHistoryAdapter extends RecyclerView.Adapter<ListHistoryAdapter.CardViewViewHolder> implements Filterable {
     private List<IdentifiedObject> listObject;
     private List<IdentifiedObject> listObjectFull;
